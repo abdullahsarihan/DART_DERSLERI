@@ -14,19 +14,20 @@ void main(List<String> args) {
   print(sayilar);
   sayilar.remove(3); //verilen elemanı siler
   print(sayilar);
-  sayilar.removeAt(1);
+  sayilar.removeAt(1); // 1. indexteki elemanı siler
   print(sayilar); //verilen indeksteki elemanı siler
 
   //sayilar.clear();
 
-  if(sayilar.contains(9)){
+  if (sayilar.contains(9)) {
     print("Listede 9 var");
-  }else{
+  } else {
     print("Listede 9 yok");
   }
-
-  print(sayilar.elementAt(2));
-  print(sayilar.indexOf(4));
-  sayilar.shuffle();
+  print(sayilar
+      .reversed); // ana yapıyı bozmadan elemanları tersten yazdırır (geçici)
+  print(sayilar.elementAt(2)); // 2. indexteki elemanı ver
+  print(sayilar.indexOf(4)); // 4 sayısının index ini verir
+  sayilar.shuffle(); // rastgele liste elemanlarının yerini kalıcı değiştiriyor
   print(sayilar);
 }

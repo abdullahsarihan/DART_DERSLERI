@@ -12,7 +12,7 @@ main(List<String> args) {
     Map<String, int> alanKodlari = {"ankara" : 312, "bursa" : 224, "istanbul" : 212};
 
     print(alanKodlari);
-    print(alanKodlari["bursa"]);
+    print(alanKodlari["bursa"]); // Listelerde index yazıyorduk burada key value mantığı olduğu için key imizi yazıyoruz
 
     Map<String, dynamic> emre = {
       "soyad": "altın",
@@ -36,7 +36,7 @@ main(List<String> args) {
     for (dynamic deger in emre.values){
       print(deger);
     }
-    for(var element in emre.entries){
+    for(var element in emre.entries){  // key value yu aynı anda gezebiliriz.
       print("Key : ${element.key} degeri : ${element.value}");
     }
 

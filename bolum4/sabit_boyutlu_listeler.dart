@@ -35,7 +35,7 @@ void main(List<String> args) {
     sayilar[i] += 5;
     print(sayilar[i]);
   }
-print("----******----");
+  print("----******----");
   for (int oankiEleman in sayilar) {
     print(oankiEleman);
   }

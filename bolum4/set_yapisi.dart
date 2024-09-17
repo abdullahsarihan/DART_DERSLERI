@@ -1,3 +1,10 @@
+/* Bir diğer koleksiyon yapısı da Set yapısıdır
+List den en önemli farkı elemanları sıralı olarak tutmaz, bu durumda list lerde olduğu gibi indexleri kullanamayız
+Bir diğer farkı ise bir elemandan sadece bir tane olur yani her eleman birbirinden farklıdır.
+
+İndex olmadan elemanları kontrol etmek için contains methodu kullanılabilir. Onun dışında listelerdeki methodlar set içinde geçerlidir.
+*/
+
 void main(List<String> args) {
   Set<String> isimler = Set();
   //var isimler = Set();  yukarıdaki ile aynı
