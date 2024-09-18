@@ -39,6 +39,13 @@ main(List<String> args) {
 //Kutuları çizerken yani bellekte yer atanırken ilk yapılan atamalar hazırlıklar vs hep bu kurucu methodların içinde yapılır.
   var bmw = Araba(2021, "bmw", true);
   bmw.bilgileriSoyle();
+  bmw.yasHesapla();
+
+  var citroen = Araba.markasizKurucuMetot(false, 2015);
+  Araba suzuki = Araba.modelYiliOlmayanKurucuMetot(true, "Suzuki");
+
+  suzuki.bilgileriSoyle();
+  suzuki.yasHesapla();
 }
 
 class Araba {
@@ -51,12 +58,43 @@ class Araba {
   //   print("Kurucu method tetiklendi");
   // }
 
-  Araba(int modelYili, String marka, bool otomatikMi) {
+  // Araba(int modelYili, String marka, bool otomatikMi) {
+  //   print("Kurucu method tetiklendi");
+  // this.modelYili = modelYili;
+  // this.marka = marka;
+  // this.otomatikMi = otomatikMi;
+  //parametre ile sınıfın içinde tanımladığımız instance variable dediğimiz yapıların isimelri aynıysa this kullanmak zorunda kalıyoruz.
+
+//this ne anlama geliyor? bmw oluşturulup onun bilgileri atanırken bmw yi temsil ediyor reno için renoyu, honda için hondayı temsil ediyor. Yani o an oluşturulan o an üzerinde çalışılan nesneyi temsil ediyor..
+
+//Direkt olarak kullanıcının verdiği verileri sınıfımızın değişkenlerine ata (this diyerek onu belirtiyoruz) ki o kutunun içinde değerler dolu olsun null hataları almayalım.
+  Araba(int this.modelYili, String this.marka, bool this.otomatikMi) {
     print("Kurucu method tetiklendi");
+
+// Araba(int yil, String m, bool o) {
+//     print("Kurucu method tetiklendi");
+    // modelYili = yil;
+    // marka = m;
+    // otomatikMi = o;
+  }
+
+//İsimlendirilmiş kurucu metotlar
+  Araba.markasizKurucuMetot(this.otomatikMi, this.modelYili);
+  Araba.modelYiliOlmayanKurucuMetot(bool otomatikMi, String marka) {
+    this.otomatikMi = otomatikMi;
+    this.marka = marka;
   }
 
   void bilgileriSoyle() {
     print(
         "Arabanın model yılı: ${modelYili} , markası : ${marka} , otomatik mi : ${otomatikMi}");
+  }
+
+// modelYili! buradaki null olabilecek şeyleri null değilmiş gibi davranmasını sağlar. Tanımında null olabilir dedik ama bu hiç bir zaman null olmayacak anlamına geliyor.
+  void yasHesapla() {
+    if (modelYili != null)
+      print("Arabanın yaşı ${2024 - modelYili!}");
+    else
+      print("Model yılı olmadıgından yaş hesaplanamadı");
   }
 }
